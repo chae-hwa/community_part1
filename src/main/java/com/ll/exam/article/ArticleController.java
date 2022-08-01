@@ -93,10 +93,10 @@ public class ArticleController {
         String title = rq.getParam("title","");
         String body = rq.getParam("body","");
 
-        rq.appendBody("<div>id : %d</div>".formatted(id));
-        rq.appendBody("<div>title : %s</div>".formatted(title));
-        rq.appendBody("<div>body : %s</div>".formatted(id));
+        articleService.modify(id, title, body);
 
+        rq.appendBody("%d번 게시물이 수정되었습니다.".formatted(id));
+        rq.appendBody("<div><a href=\"/usr/article/list/free\">리스트로 이동<a></div>");
 
     }
 }
